@@ -30,7 +30,7 @@
     </script>
     <ul class="sale_list_outer">
         <li>
-            <a href="#none">
+            <a href="/sub/product.php">
                 <div class="sale_img">
                     <img src="/img/sample_sale_img.png" alt="">
                 </div>
@@ -43,7 +43,7 @@
             </a>
         </li>
         <li>
-            <a href="#none">
+            <a href="/sub/product.php">
                 <div class="sale_img">
                     <img src="/img/sample_sale_img.png" alt="">
                 </div>
@@ -56,7 +56,7 @@
             </a>
         </li>
         <li>
-            <a href="#none">
+            <a href="/sub/product.php">
                 <div class="sale_img">
                     <img src="/img/sample_sale_img.png" alt="">
                 </div>
@@ -69,7 +69,7 @@
             </a>
         </li>
         <li>
-            <a href="#none">
+            <a href="/sub/product.php">
                 <div class="sale_img">
                     <img src="/img/sample_sale_img.png" alt="">
                 </div>
@@ -82,7 +82,7 @@
             </a>
         </li>
         <li>
-            <a href="#none">
+            <a href="/sub/product.php">
                 <div class="sale_img">
                     <img src="/img/sample_sale_img.png" alt="">
                 </div>
@@ -95,7 +95,7 @@
             </a>
         </li>
         <li>
-            <a href="#none">
+            <a href="/sub/product.php">
                 <div class="sale_img">
                     <img src="/img/sample_sale_img.png" alt="">
                 </div>
@@ -108,7 +108,7 @@
             </a>
         </li>
         <li>
-            <a href="#none">
+            <a href="/sub/product.php">
                 <div class="sale_img">
                     <img src="/img/sample_sale_img.png" alt="">
                 </div>
@@ -121,7 +121,7 @@
             </a>
         </li>
         <li>
-            <a href="#none">
+            <a href="/sub/product.php">
                 <div class="sale_img">
                     <img src="/img/sample_sale_img.png" alt="">
                 </div>
@@ -134,7 +134,7 @@
             </a>
         </li>
         <li>
-            <a href="#none">
+            <a href="/sub/product.php">
                 <div class="sale_img">
                     <img src="/img/sample_sale_img.png" alt="">
                 </div>
@@ -147,7 +147,7 @@
             </a>
         </li>
         <li>
-            <a href="#none">
+            <a href="/sub/product.php">
                 <div class="sale_img">
                     <img src="/img/sample_sale_img.png" alt="">
                 </div>
@@ -160,7 +160,7 @@
             </a>
         </li>
         <li>
-            <a href="#none">
+            <a href="/sub/product.php">
                 <div class="sale_img">
                     <img src="/img/sample_sale_img.png" alt="">
                 </div>
@@ -173,7 +173,7 @@
             </a>
         </li>
         <li>
-            <a href="#none">
+            <a href="/sub/product.php">
                 <div class="sale_img">
                     <img src="/img/sample_sale_img.png" alt="">
                 </div>

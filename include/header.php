@@ -8,9 +8,9 @@
                 <ul class="gnb flex_normal">
                     <li><a href="#none">회사소개</a></li>
                     <li><a href="#none">관광상품권</a></li>
-                    <li><a href="#none">가맹점</a></li>
+                    <li><a href="/sub/franchisee.php">가맹점</a></li>
                     <li><a href="#none">관광</a></li>
-                    <li><a href="#none">쇼핑몰</a></li>
+                    <li><a href="/sub/shop.php">쇼핑몰</a></li>
                     <li><a href="#none">고객센터</a></li>
                 </ul>
                 <div class="right flex_normal">
