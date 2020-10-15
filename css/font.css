@@ -124,3 +124,24 @@
         url('./fonts/S-Core_Dream/SCDream1.woff') format('woff');
  }
  
+ @font-face {
+    font-family: 'gmarket';
+    font-style: normal;
+    font-weight: 300;
+    src: url('./fonts/gmarket/GmarketSansLight.otf') format('opentype'),
+         url('./fonts/gmarket/GmarketSansLight.woff') format('woff');
+  }
+  @font-face {
+    font-family: 'gmarket';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./fonts/gmarket/GmarketSansMedium.otf') format('opentype'),
+         url('./fonts/gmarket/GmarketSansMedium.woff') format('woff');
+  }
+  @font-face {
+    font-family: 'gmarket';
+    font-style: normal;
+    font-weight: 700;
+    src: url('./fonts/gmarket/GmarketSansBold.otf') format('opentype'),
+         url('./fonts/gmarket/GmarketSansBold.woff') format('woff');
+  }

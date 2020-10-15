@@ -5,6 +5,8 @@ html, body{font-family: 'Noto Sans KR';}
 .inner{width: 1200px; margin: 0 auto;}
 select{-moz-appearance: none; -webkit-appearance: none; background: url('/img/select_arrow.png') no-repeat; background-position: 95% center;}
 select::-ms-expand{display: none;}
+.ft_gmarket{font-family: 'gmarket';}
+
 /*header*/
 #header{height: 90px; position: absolute; z-index: 11; width: 100%; vertical-align: middle; line-height: 90px; vertical-align: middle; border-bottom: 1px solid rgba(255,255,255,0.4);}
 #header .logo img{line-height: 90px; vertical-align: middle; display: inline;}
@@ -195,3 +197,70 @@ select::-ms-expand{display: none;}
 .detail_outer{border: 1px solid #ddd; border-left: 0; border-right: 0; margin: 45px 0; padding: 45px 0;}
 .his_back{text-align: center; margin-bottom: 100px;}
 .his_back a{background-color: #153a91; color: #fff; padding: 15px 40px; font-size: 17px; font-weight: 700; }
+
+.franchisee.product_info .info_detail .option_line p{width: auto; padding-left: 0; color: #7c7c7c; font-size: 16px;}
+.franchisee.product_info .info_detail .option_line.tel p{color: 16px; color: #1e5392; font-weight: 700;}
+
+/*login*/
+.tab2{display: none;}
+.login_line{border-top: 1px solid #c0c0c0;margin-bottom : 20px;}
+.login{width: 500px; margin: 0 auto; background-color: #fafafa; border: 1px solid #c0c0c0; margin-bottom: 60px;}
+.login .tabs{padding: 0 ;}
+.login .tabs .tab_top{display: flex; justify-content: space-between;}
+.login .tabs .tab_{width: 50%; height: 50px; line-height: 50px; background-color: #bbbbbb; color: #fff; text-align: center; cursor: pointer;}
+.login .tabs .tab_.on{background-color: #1a3759;}
+.login .tabs .tab_inner{padding: 40px 60px;}
+.login .tabs .tab_inner h2{font-size: 34px; font-weight: 500;}
+.login .tabs .tab_inner > p{font-size: 14px;margin-bottom: 20px;}
+.login .tabs form label{border: 1px solid #c0c0c0; background-color: #fff; height: 45px; display: block; line-height: 45px; padding: 0 20px;}
+.login .tabs form label input{color: #555555;padding-left: 20px; font-size: 13px; border: 0;width: 300px; height: 80%;}
+.login .tabs form label i{color: #adb5bd;}
+.login .tabs form label, .login .tabs form input[type=submit]{border-radius: 22.5px; margin-top: 10px;}
+.login .tabs form input[type=submit]{color: #fff; font-size: 14px; font-weight: 500; width: 100%; background-color: #153a91; height: 45px; border: 0;}
+.login .tabs .fine_box{text-align: center; color: #000;font-size: 13px; margin: 18px 0 36px;}
+.login .tabs .fine_box a{ color: #000;margin: 0 20px;}
+.login .tabs .join_box{}
+.login .tabs .join_box p{display: inline-block; vertical-align: middle; color: #5b5b5b; font-size: 14px;}
+.login .tabs .join_box a{display: inline-block; vertical-align: middle;border: 1px solid #c0c0c0; background-color: #fff; color: #272626; font-size: 14px; width: 80px; height: 36px; text-align: center; line-height: 36px; border-radius: 3px; margin-left: 10px;}
+
+/*join*/
+.join_outer{margin-bottom: 60px;}
+.page_subject.join_subject{margin-bottom: 0;}
+.join_outer .step_box{width: 100%; display: flex; justify-content: space-between; margin-bottom: 55px;}
+.join_outer .step_box li{width: 25%; height: 100px; line-height: 100px; vertical-align: middle; position: relative; border-bottom: 1px solid #c0c0c0; box-sizing: border-box;}
+.join_outer .step_box li.on{border-bottom: 2px solid #2f6dc1;}
+.join_outer .step_box li img{margin: 0 auto; margin-top: 25px; filter: grayscale(1);}
+.join_outer .step_box li.on img{filter: none;}
+.join_outer .sub_title p{margin: 15px 0;}
+
+.join_outer .select_join_box{display: flex; justify-content: space-between;}
+.join_outer .select_join_box .select_join{width: 585px; height: 230px; background: url('../img/select_join1.png') no-repeat center;}
+.join_outer .select_join_box .select_join:last-child{background: url('../img/select_join2.png') no-repeat center;}
+.join_outer .select_join_box .select_join_inner{margin: 50px;}
+.join_outer .select_join_box .bar{width: 23px; height: 2px; background-color: #000; display: block;}
+.join_outer .select_join_box .select_join:last-child .bar{background-color: #fff;}
+.join_outer .select_join_box h3{font-size: 24px;}
+.join_outer .select_join_box p{font-size: 15px; color: #8c8c8c; margin: 15px 0 20px;}
+.join_outer .select_join_box a{display: inline-block; width: 110px; height: 40px; line-height: 40px; border: 1px solid #c0c0c0; text-align: center; color: #3c3c3c;}
+.join_outer .select_join_box .select_join:last-child h3{color: #fff;}
+.join_outer .select_join_box .select_join:last-child p{color: #8fb9f3;}
+.join_outer .select_join_box .select_join:last-child a{color: #cae1ff; border: 1px solid rgba(255, 255, 255, 0.3);}
+
+.terms_box{margin-bottom: 30px;}
+.terms_outer textarea{width: 100%; height: 230px; border: 1px solid #d8d8d8; background-color: #f9f9f9; border-radius: 5px; padding: 25px 20px; margin-top: 10px;}
+.terms_outer form label{vertical-align: middle; font-size: 16px; line-height: 20px;}
+.terms_outer form input[type=checkbox]{width: 18px; height: 18px; vertical-align: middle; line-height: 20px; position: relative; top: -1px;}
+
+.join_form li{border-bottom: 1px solid #c0c0c0; padding: 8px 0;}
+.join_form li:first-child{border-top: 1px solid #010101;}
+.join_form li p{width: 210px; padding-left: 30px; font-size: 15px; color: #000; font-weight: 500; display: inline-block; vertical-align: middle;}
+.join_form li input, .join_form li select, .join_form li textarea{display: inline-block; vertical-align: middle; width: 150px; height: 36px; line-height: 36px; font-size: 14px; border: 1px solid #dedede; border-radius: 5px; background-color: #f4f4f4; padding: 0px 5px;}
+.join_form li span{margin-left: 10px; font-size: 13px; color: #6d6d6d;}
+.join_form li span.id_check{margin-left: auto; color: #000; padding: 5px 7px; border: 1px solid #000; border-radius: 5px; cursor: pointer;}
+.join_form .submit_box{ text-align: center; margin-top: 30px;}
+.join_form .submit_box input{padding: 15px 30px; color: #fff; background-color: #153a91; border: 0; font-size: 17px; font-weight: bold;}
+.join_form li textarea{height: 166px; width: 935px; resize: none; line-height: 20px;padding: 10px 5px;}
+
+.join_end{width: 500px; border: 1px solid #ddd; margin: 0 auto; margin-bottom: 60px; text-align: center;padding: 100px 0px ;}
+.join_end h2{margin-bottom: 50px;}
+.join_end a{padding: 7px 20px; background-color: #153a91; color: #fff;}

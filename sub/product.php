@@ -1,5 +1,12 @@
 <?php
+	include $_SERVER['DOCUMENT_ROOT']."/inc/init_config.php";
+	include $_SERVER['DOCUMENT_ROOT']."/inc/library.php";
+
     include $_SERVER['DOCUMENT_ROOT']."/include/head.php";
+
+	$sql_modify = "select * from shopping where idx = '".$_GET['idx']."'";
+	$result_modify = mysqli_query($link, $sql_modify);
+	$row_member = mysqli_fetch_array($result_modify);
 ?>
 <div class="main_slider swiper-container sub_slide">
     <div class="swiper-wrapper">
@@ -20,10 +27,19 @@
         <div class="product_outer">
             <div class="product_img">
                 <div class="swiper-wrapper">
+					<?php
+						$sql_img_file = "select * from file_list where board_type = 'shopping' and board_idx = '".$_GET['idx']."'";
+						$result_img_file = mysqli_query($link, $sql_img_file);
+
+						while($row_img_file = mysqli_fetch_array($result_img_file)) {					
+					?>
                     <div class="swiper-slide">
-                        <img src="/img/product_img01.png" alt="">
+                        <img src="/upload/img/<?=$row_img_file['real_file_name']?>" alt="" style="width:500px;">
                     </div>
-                    <div class="swiper-slide">
+					<?php
+						}
+					?>
+                    <!-- <div class="swiper-slide">
                         <img src="/img/product_img02.png" alt="">
                     </div>
                     <div class="swiper-slide">
@@ -31,13 +47,13 @@
                     </div>
                     <div class="swiper-slide">
                         <img src="/img/product_img02.png" alt="">
-                    </div>
+                    </div> -->
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
             <div class="product_info">
                 <form action="">
-                    <h2>위니아 딤채 김치냉장고 쁘띠형 레드</h2>
+                    <h2><?=$row_member['subject']?></h2>
                     <div class="info_detail">
                         <div class="info_detail_outer">
                             <p>수량</p>
@@ -51,9 +67,16 @@
                             <p>옵션</p>
                             <div class="option_line">
                                 <select name="">
-                                    <option value="" disable selected>옵션을 선택하세요.</option>
-                                    <option value="">옵션1</option>
-                                    <option value="">옵션2</option>
+									<?php
+										$sql_img_file = "select * from product_option_list where product_idx = '".$_GET['idx']."'";
+										$result_img_file = mysqli_query($link, $sql_img_file);
+
+										while($row_img_file = mysqli_fetch_array($result_img_file)) {					
+									?>
+                                    <option value="<?=$row_img_file['option_name']?>"><?=$row_img_file['option_name']?></option>
+									<?php
+										}
+									?>
                                 </select>
                             </div>
                         </div>
@@ -71,11 +94,11 @@
                 <p>탐라국에 오신것을 환영합니다. 탐라국 주유소 가맹점 상세정보를 보실 수 있습니다.</p>
             </div>
             <div class="detail_contents">
-
+				<?=$row_member['contents']?>
             </div>
         </div>
         <div class="his_back">
-            <a href="#none" class="">리스트로</a>
+            <a href="#none" class="" onclick="javascript:history.go(-1);">리스트로</a>
         </div>
     </div>
 </div>

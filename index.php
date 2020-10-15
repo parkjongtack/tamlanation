@@ -33,7 +33,7 @@
 </script>
 <div class="main_search_area">
     <div class="inner">
-        <div class="search_select_box box_shadow">
+        <div class="search_select_box box_shadow" data-aos="fade-up">
             <form action="">
                 <select name="" id="">
                     <option value="#" selected>제주시</option>
@@ -77,22 +77,22 @@
             <div class="fran_list_area">
                 <div class="fran_list">
                     <ul>
-                        <li class="on box_shadow">
+                        <li class="on box_shadow" data-aos="fade-left">
                             <img src="/img/main_nav01_on.png" alt="">
                         </li>
-                        <li class="box_shadow">
+                        <li class="box_shadow" data-aos="fade-left" data-aos-delay="200">
                             <img src="/img/main_nav02.png" alt="">
                         </li>
-                        <li class="box_shadow">
+                        <li class="box_shadow" data-aos="fade-left" data-aos-delay="300">
                             <img src="/img/main_nav03.png" alt="">
                         </li>
-                        <li class="box_shadow">
+                        <li class="box_shadow" data-aos="fade-left" data-aos-delay="400">
                             <img src="/img/main_nav04.png" alt="">
                         </li>
-                        <li class="box_shadow">
+                        <li class="box_shadow" data-aos="fade-left" data-aos-delay="500">
                             <img src="/img/main_nav05.png" alt="">
                         </li>
-                        <li class="box_shadow">
+                        <li class="box_shadow" data-aos="fade-left" data-aos-delay="600">
                             <img src="/img/main_nav06.png" alt="">
                         </li>
                     </ul>
@@ -188,7 +188,7 @@
                             <p class="cate">호텔</p>
                             <h2>제주신라호텔</h2>
                             <p class="gps_text"><span>위치</span>서귀포시 중문관광로 72번길 75</p>
-                            <a href="#none">홈페이지 이동</a>
+                            <a href="/sub/franchisee_view.php">홈페이지 이동</a>
                         </div>
                     </div>
                     <div class="swiper-slide box_shadow">
@@ -199,7 +199,7 @@
                             <p class="cate">호텔</p>
                             <h2>제주신라호텔</h2>
                             <p class="gps_text"><span>위치</span>서귀포시 중문관광로 72번길 75</p>
-                            <a href="#none">홈페이지 이동</a>
+                            <a href="/sub/franchisee_view.php">홈페이지 이동</a>
                         </div>
                     </div>
                     <div class="swiper-slide box_shadow">
@@ -210,7 +210,7 @@
                             <p class="cate">호텔</p>
                             <h2>제주신라호텔</h2>
                             <p class="gps_text"><span>위치</span>서귀포시 중문관광로 72번길 75</p>
-                            <a href="#none">홈페이지 이동</a>
+                            <a href="/sub/franchisee_view.php">홈페이지 이동</a>
                         </div>
                     </div>
                     <div class="swiper-slide box_shadow">
@@ -221,7 +221,7 @@
                             <p class="cate">호텔</p>
                             <h2>제주신라호텔</h2>
                             <p class="gps_text"><span>위치</span>서귀포시 중문관광로 72번길 75</p>
-                            <a href="#none">홈페이지 이동</a>
+                            <a href="/sub/franchisee_view.php">홈페이지 이동</a>
                         </div>
                     </div>
                     <div class="swiper-slide box_shadow">
@@ -232,7 +232,7 @@
                             <p class="cate">호텔</p>
                             <h2>제주신라호텔</h2>
                             <p class="gps_text"><span>위치</span>서귀포시 중문관광로 72번길 75</p>
-                            <a href="#none">홈페이지 이동</a>
+                            <a href="/sub/franchisee_view.php">홈페이지 이동</a>
                         </div>
                     </div>
                     <div class="swiper-slide box_shadow">
@@ -243,7 +243,7 @@
                             <p class="cate">호텔</p>
                             <h2>제주신라호텔</h2>
                             <p class="gps_text"><span>위치</span>서귀포시 중문관광로 72번길 75</p>
-                            <a href="#none">홈페이지 이동</a>
+                            <a href="/sub/franchisee_view.php">홈페이지 이동</a>
                         </div>
                     </div>
                 </div>
@@ -269,12 +269,12 @@
 </div>
 <div class="contact_area">
     <div class="inner">
-        <div class="box_shadow">
+        <div class="box_shadow" data-aos="fade-right">
             <a href="#none">
                 <img src="/img/contact_area_img01.png" alt="">
             </a>
         </div>
-        <div class="box_shadow">
+        <div class="box_shadow" data-aos="fade-left">
             <a href="#none">
                 <img src="/img/contact_area_img02.png" alt="">
             </a>
@@ -442,7 +442,7 @@
             </ul>
         </div>
         <div class="shop_area box_shadow">
-            <a href="#none"><img src="/img/shop_area_img01.png" alt=""></a>
+            <a href="/sub/shop.php"><img src="/img/shop_area_img01.png" alt=""></a>
         </div>
         <div class="tel_area box_shadow">
             <img src="/img/tel_area_img01.png" alt="">

@@ -11,4 +11,10 @@
         </div>
         </div>
     </div>
+    <script tpye="javascript/text">
+        AOS.init({
+            duration: 1000,
+        });
+        window.addEventListener('load', AOS.refresh);
+    </script>
 </body>
