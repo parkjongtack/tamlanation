@@ -7,7 +7,7 @@ header('Content-Type: text/html; charset=UTF-8');
 session_start();
 
 //db연결
-$link = mysqli_connect("db.tamrakuk.gabia.io", "tamrakuk", "rhksfleogod04", "dbtamrakuk");
+$link = mysqli_connect("localhost", "root", "", "dbtamrakuk");
 
 if (!$link) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;

@@ -95,7 +95,7 @@
         </ul>
     
         <div class="sub_title">
-            <h2>가맹점회원</h2>
+            <h2>가맹점회원 가입신청</h2>
             <p>탐라국에 오신것을 환영합니다. 회원가입 정보를 입력해주세요.</p>
         </div>
         <form action="../action/write_action.php" class="join_form" method="POST" onsubmit="return member_insert_action();">
@@ -182,7 +182,7 @@
                 </li>
                 <li>
                     <p>매장 소개글</p>
-                    <textarea name="user_memo" required></textarea>
+                    <textarea name="user_memo" required wrap="hard"></textarea>
                 </li>
             </ul>
             <div class="submit_box">

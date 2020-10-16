@@ -41,7 +41,7 @@
             <div id="nav">
 				
                 <div class="logo">
-                    <a href="/as_admin/pcslider">
+                    <a href="/as_admin/">
                         <img src="../img/logo.png" alt="로고" width="100%">
                     </a>
                 </div>

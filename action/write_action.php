@@ -1,7 +1,9 @@
 <?php
-    include $_SERVER['DOCUMENT_ROOT']."/inc/init_config.php";
-
-    $write_type = $_POST['board_type'];
+	include $_SERVER['DOCUMENT_ROOT']."/inc/init_config.php";
+    error_reporting(E_ALL);
+    ini_set('display_errors', '1');
+	$write_type = $_POST['board_type'];
+	$now = date("Y-m-d H:i:s");
 
     if($write_type == 'join'){
         if($_POST['join_type'] == '1'){
@@ -16,6 +18,8 @@
 
 			$sql = "insert into as_account set user_id = '".$_POST['user_id']."', user_passwd = '".md5($_POST['user_passwd'])."', user_address_number = '".$_POST['user_address_number']."', user_address = '".$_POST['user_address']."', user_address_detail = '".$_POST['user_address_detail']."', user_phone = '".$_POST['user_phone1']."-".$_POST['user_phone2']."-".$_POST['user_phone3']."', user_email = '".$_POST['user_email1']."@".$_POST['user_email2']."', user_store_name = '".$_POST['user_store_name']."', user_store_call = '".$_POST['user_store_call']."', user_business_number = '".$_POST['user_business_number']."', user_name = '".$_POST['user_name']."', user_bank = '".$_POST['user_bank']."', user_bank_name = '".$_POST['user_bank_name']."', user_bank_info = '".$_POST['user_bank_info']."', user_url = '".$_POST['user_url']."', user_store_opendate = '".$_POST['user_store_opendate']."', user_memo = '".$_POST['user_memo']."', user_sectors = '".$_POST['user_sectors']."', user_type = '2', check_join = 'N'";
 			$result = mysqli_query($link, $sql);
+			//echo $sql;
+			//exit;
 
 			echo "<script>alert('가맹점 회원 가입이 완료되었습니다. 관리자 승인 이후에 정식으로 활동 가능합니다.');location.href = '/sub/login.php';</script>";
 			exit;
@@ -385,7 +389,13 @@
 
 			$_SESSION['user_id'] = $row_member['user_id'];
 			$_SESSION['user_type'] = 1;
-
+			// if(isset($_SESSION['user_id'])){
+			// 	echo $_SESSION['user_id'];
+			// 	exit;
+			// }else{
+			// 	echo '세션이 없습니다.';
+			// 	exit;
+			// }
 			echo "<script>alert('일반회원 로그인이 완료되었습니다.');location.href= '/';</script>";
 			exit;
 
@@ -423,5 +433,34 @@
 
 	}
 
+	if($write_type == "product"){
+
+		if($_POST['wish_buy'] == 'cart'){
+			$sql = "insert into cart set price = '".$_POST['price']."', discount = '".$_POST['discount']."', product_idx = '".$_POST['product_idx']."', user_id = '".$_SESSION['user_id']."'";
+			$result = mysqli_query($link, $sql);
+			echo $sql;
+			
+			//echo "<script>alert('정상적으로 장바구니에 담았습니다.');location.href = '/sub/my_page/basket.php';</script>";
+			exit;
+		}else if($_POST['wish_buy'] == 'buy'){
+
+			$sql_null = "insert into order_table set order_status = '주문접수'";
+			$insert_null = mysqli_query($link, $sql_null);
+			$last_uid = mysqli_insert_id($link);
+
+			// gen order no
+			$now = date("ymdHis"); //오늘의 날짜 년월일시분초 
+			// $rand = strtoupper(substr(uniqid(sha1(time())),0,4)) ; //임의의난수발생 앞6자리 
+			$orderNum = $now.$last_uid;
+			
+			$sql = "update order_table set option = '".$_POST['option']."', order_number = '".$orderNum."', order_status = '주문접수', settle_type = '".$_POST['settle_type']."', amount = '".$_POST['product_cnt']."', product_name = '".$_POST['product_name']."', order_date = '".$now."', price = '".$_POST['price']."', discount = '".$_POST['discount']."', product_idx = '".$_POST['product_idx']."', user_id = '".$_SESSION['user_id']."' where idx='".$last_uid."'";
+			$result = mysqli_query($link, $sql);
+			// echo $sql;
+			
+			echo "<script>location.href = '/sub/order_completed.php';</script>";
+			exit;
+		}
+
+	}
 
 ?>
