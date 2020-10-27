@@ -51,6 +51,225 @@
 			exit;
 
 		}
+    }
+
+    if($write_type == "inquiry_add") {
+		
+		$sql = "insert into board set email = '".$_POST['email1'].$_POST['email2']."', board_type = 'inquiry', writer = '".$_POST['writer']."', subject = '".$_POST['subject']."', contents = '".$_POST['contents']."', reg_date = '".date('Y-m-d H:i:s')."'";
+		$result = mysqli_query($link, $sql);
+
+		$idx = mysqli_insert_id($link);
+
+		foreach($_POST['option_name'] as $key => $value) {
+			$option_query = "insert into product_option_list set option_name = '".$value."', product_idx = '".$idx."'";
+			$option_result = mysqli_query($link, $option_query);			
+		}
+
+		$file_query = "";
+		foreach($_FILES['upload_image']['name'] as $key => $value) {
+
+			$file = $_FILES['upload_image'];
+			$upload_directory = $_SERVER['DOCUMENT_ROOT'].'/upload/img/';
+			$ext_str = "jpg,gif,png,pdf,ppt,pptx";
+			$allowed_extensions = explode(',', $ext_str);
+
+			$max_file_size = 5242880000000000;
+			$ext = substr($file['name'][$key], strrpos($file['name'][$key], '.') + 1);
+			
+			//echo $ext."<br/>";
+			
+			// 확장자 체크
+			if(!in_array($ext, $allowed_extensions)) {
+				//echo "<script>alert('업로드할 수 없는 확장자 입니다.');history.go(-1);</script>";
+				//exit;
+			}
+
+			// 파일 크기 체크
+			if($file['size'] >= $max_file_size) {
+				//echo "<script>alert('5MB 까지만 업로드 가능합니다.');history.go(-1);</script>";
+				//exit;
+			}
+
+			$path = md5(microtime()) . '.' . $ext;
+			if(move_uploaded_file($file['tmp_name'][$key], $upload_directory.$path)) {
+				
+				//$query = "INSERT INTO upload_file (file_id, name_orig, name_save, reg_time) VALUES(?,?,?,now())";
+				$file_id = md5(uniqid(rand(), true));
+				$name_orig = $file['name'][$key];
+				$name_save = $path;
+
+				//$data['link'] = "http://designwizc.com/sample/editor/html/popular/ce71c16d59422aa4f5f2eb42d02ec6cc.jpg";
+
+				//echo json_encode($data['link']);
+
+				//$response = new \StdClass;
+				//$response->link = Director::absoluteBaseURL() . "" . $file->Filename;
+				//$response->link = "/sample/editor/html/popular/" . $name_save;
+				//echo stripslashes(json_encode($response));
+
+				//$orgin_name = $orgin_name.$name_orig."^|^";
+				//$save_name = $save_name.$name_save."^|^";
+
+				//echo"<h3>파일 업로드 성공</h3>";
+				//echo '<a href="file_list.php">업로드 파일 목록</a>';
+				
+				//$file1_query = ", attach_file = '".$name_save."', real_file_name = '".$name_orig."'";
+                
+                // $file_query = "insert into notice set board_type = 'shopping', file_name = '".$file['name'][$key]."', real_file_name = '".$name_save."', board_idx = '".$idx."'";
+				// $file_result = mysqli_query($link, $file_query);
+			}
+			
+		}		
+
+		echo "<script>alert('문의사항 등록이 완료되었습니다.');location.href = '/';</script>";
+		exit;
+
+    }
+
+    if($write_type == "notice_add") {
+		
+		$sql = "insert into board set subject = '".$_POST['subject']."', contents = '".$_POST['contents']."', reg_date = '".date('Y-m-d H:i:s')."'";
+		$result = mysqli_query($link, $sql);
+
+		$idx = mysqli_insert_id($link);
+
+		foreach($_POST['option_name'] as $key => $value) {
+			$option_query = "insert into product_option_list set option_name = '".$value."', product_idx = '".$idx."'";
+			$option_result = mysqli_query($link, $option_query);			
+		}
+
+		$file_query = "";
+		foreach($_FILES['upload_image']['name'] as $key => $value) {
+
+			$file = $_FILES['upload_image'];
+			$upload_directory = $_SERVER['DOCUMENT_ROOT'].'/upload/img/';
+			$ext_str = "jpg,gif,png,pdf,ppt,pptx";
+			$allowed_extensions = explode(',', $ext_str);
+
+			$max_file_size = 5242880000000000;
+			$ext = substr($file['name'][$key], strrpos($file['name'][$key], '.') + 1);
+			
+			//echo $ext."<br/>";
+			
+			// 확장자 체크
+			if(!in_array($ext, $allowed_extensions)) {
+				//echo "<script>alert('업로드할 수 없는 확장자 입니다.');history.go(-1);</script>";
+				//exit;
+			}
+
+			// 파일 크기 체크
+			if($file['size'] >= $max_file_size) {
+				//echo "<script>alert('5MB 까지만 업로드 가능합니다.');history.go(-1);</script>";
+				//exit;
+			}
+
+			$path = md5(microtime()) . '.' . $ext;
+			if(move_uploaded_file($file['tmp_name'][$key], $upload_directory.$path)) {
+				
+				//$query = "INSERT INTO upload_file (file_id, name_orig, name_save, reg_time) VALUES(?,?,?,now())";
+				$file_id = md5(uniqid(rand(), true));
+				$name_orig = $file['name'][$key];
+				$name_save = $path;
+
+				//$data['link'] = "http://designwizc.com/sample/editor/html/popular/ce71c16d59422aa4f5f2eb42d02ec6cc.jpg";
+
+				//echo json_encode($data['link']);
+
+				//$response = new \StdClass;
+				//$response->link = Director::absoluteBaseURL() . "" . $file->Filename;
+				//$response->link = "/sample/editor/html/popular/" . $name_save;
+				//echo stripslashes(json_encode($response));
+
+				//$orgin_name = $orgin_name.$name_orig."^|^";
+				//$save_name = $save_name.$name_save."^|^";
+
+				//echo"<h3>파일 업로드 성공</h3>";
+				//echo '<a href="file_list.php">업로드 파일 목록</a>';
+				
+				//$file1_query = ", attach_file = '".$name_save."', real_file_name = '".$name_orig."'";
+                
+                // $file_query = "insert into notice set board_type = 'shopping', file_name = '".$file['name'][$key]."', real_file_name = '".$name_save."', board_idx = '".$idx."'";
+				// $file_result = mysqli_query($link, $file_query);
+			}
+			
+		}		
+
+		echo "<script>alert('공지사항 게시글 등록이 완료되었습니다.');location.href = '/as_admin/notice_list.php';</script>";
+		exit;
+
+    }
+    
+    if($write_type == "notice_modify") {
+		
+		$sql = "update board set subject = '".$_POST['subject']."', contents = '".$_POST['contents']."' where idx = '".$_POST['idx']."'";
+		$result = mysqli_query($link, $sql);
+
+		//$idx = mysqli_insert_id($link);
+
+		foreach($_POST['option_name'] as $key => $value) {
+			$option_query = "insert into product_option_list set option_name = '".$value."', product_idx = '".$_POST['idx']."'";
+			$option_result = mysqli_query($link, $option_query);			
+		}
+
+		$file_query = "";
+		foreach($_FILES['upload_image']['name'] as $key => $value) {
+
+			$file = $_FILES['upload_image'];
+			$upload_directory = $_SERVER['DOCUMENT_ROOT'].'/upload/img/';
+			$ext_str = "jpg,gif,png,pdf,ppt,pptx";
+			$allowed_extensions = explode(',', $ext_str);
+
+			$max_file_size = 5242880000000000;
+			$ext = substr($file['name'][$key], strrpos($file['name'][$key], '.') + 1);
+			
+			//echo $ext."<br/>";
+			
+			// 확장자 체크
+			if(!in_array($ext, $allowed_extensions)) {
+				//echo "<script>alert('업로드할 수 없는 확장자 입니다.');history.go(-1);</script>";
+				//exit;
+			}
+
+			// 파일 크기 체크
+			if($file['size'] >= $max_file_size) {
+				//echo "<script>alert('5MB 까지만 업로드 가능합니다.');history.go(-1);</script>";
+				//exit;
+			}
+
+			$path = md5(microtime()) . '.' . $ext;
+			if(move_uploaded_file($file['tmp_name'][$key], $upload_directory.$path)) {
+				
+				//$query = "INSERT INTO upload_file (file_id, name_orig, name_save, reg_time) VALUES(?,?,?,now())";
+				$file_id = md5(uniqid(rand(), true));
+				$name_orig = $file['name'][$key];
+				$name_save = $path;
+
+				//$data['link'] = "http://designwizc.com/sample/editor/html/popular/ce71c16d59422aa4f5f2eb42d02ec6cc.jpg";
+
+				//echo json_encode($data['link']);
+
+				//$response = new \StdClass;
+				//$response->link = Director::absoluteBaseURL() . "" . $file->Filename;
+				//$response->link = "/sample/editor/html/popular/" . $name_save;
+				//echo stripslashes(json_encode($response));
+
+				//$orgin_name = $orgin_name.$name_orig."^|^";
+				//$save_name = $save_name.$name_save."^|^";
+
+				//echo"<h3>파일 업로드 성공</h3>";
+				//echo '<a href="file_list.php">업로드 파일 목록</a>';
+				
+                //$file1_query = ", attach_file = '".$name_save."', real_file_name = '".$name_orig."'";
+                
+				// $file_query = "insert into file_list set board_type = 'shopping', file_name = '".$file['name'][$key]."', real_file_name = '".$name_save."', board_idx = '".$_POST['idx']."'";
+				// $file_result = mysqli_query($link, $file_query);
+			}
+			
+		}		
+
+		echo "<script>alert('공지사항 게시글 수정이 완료되었습니다.');location.href = '/as_admin/notice_list.php';</script>";
+		exit;
+
 	}
 
 	if($write_type == "shopping_add") {
@@ -199,7 +418,7 @@
 
 	if($write_type == "franchisee_add") {
 		
-		$sql = "insert into franchisee set user_sectors = '".$_POST['user_sectors']."', user_store_name = '".$_POST['user_store_name']."', user_addr = '".$_POST['user_addr']."', user_url = '".$_POST['user_url']."', user_phone = '".$_POST['user_phone']."', city = '".$_POST['city']."'";
+		$sql = "insert into franchisee set user_sectors = '".$_POST['user_sectors']."', user_sectors2 = '".$_POST['user_sectors2']."', user_store_name = '".$_POST['user_store_name']."', user_addr = '".$_POST['user_addr']."', user_url = '".$_POST['user_url']."', user_phone = '".$_POST['user_phone']."', city = '".$_POST['city']."'";
 		$result = mysqli_query($link, $sql);
 
 		//$idx = mysqli_insert_id($link);
@@ -266,7 +485,7 @@
 
 	if($write_type == "franchisee_modify") {
 		
-		$sql = "update franchisee set user_sectors = '".$_POST['user_sectors']."', user_store_name = '".$_POST['user_store_name']."', user_addr = '".$_POST['user_addr']."', user_url = '".$_POST['user_url']."', user_phone = '".$_POST['user_phone']."', city = '".$_POST['city']."' where idx = '".$_POST['idx']."'";
+		$sql = "update franchisee set user_sectors = '".$_POST['user_sectors']."', user_sectors2 = '".$_POST['user_sectors2']."', user_store_name = '".$_POST['user_store_name']."', user_addr = '".$_POST['user_addr']."', user_url = '".$_POST['user_url']."', user_phone = '".$_POST['user_phone']."', city = '".$_POST['city']."' where idx = '".$_POST['idx']."'";
 		$result = mysqli_query($link, $sql);
 
 		//$idx = mysqli_insert_id($link);
@@ -334,6 +553,20 @@
 	if($write_type == "option_delete") {
 		
 		$sql = "delete from product_option_list where idx = '".$_POST['idx']."'";
+		$result = mysqli_query($link, $sql);
+
+    }
+    
+    if($write_type == "delete_notice") {
+		
+		$sql = "delete from board where idx = '".$_POST['idx']."'";
+		$result = mysqli_query($link, $sql);
+
+    }
+    
+    if($write_type == "delete_inquiry") {
+		
+		$sql = "delete from board where idx = '".$_POST['idx']."'";
 		$result = mysqli_query($link, $sql);
 
 	}

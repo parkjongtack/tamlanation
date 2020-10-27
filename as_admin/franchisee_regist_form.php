@@ -1,4 +1,4 @@
-<?php include $_SERVER['DOCUMENT_ROOT']."/as_admin/include/admin_header.php"; ?>
+<?php include_once $_SERVER['DOCUMENT_ROOT']."/as_admin/include/admin_header.php"; ?>
 <?php
 	if($_GET['board_type'] == "franchisee_modify") {
 		$sql_modify = "select * from franchisee where idx = '".$_GET['idx']."'";
@@ -38,9 +38,57 @@
 							<option value="marketplace" <?=($row_member['user_sectors'] == "marketplace") ? "selected" : ""; ?> >장터정보</option>
 							<option value="etc" <?=($row_member['user_sectors'] == "etc") ? "selected" : ""; ?> >기타정보</option>
 						</select>
+						<select name="user_sectors2">
+
+						</select>
                     </div>
                 </div>
 			</div>
+			<script type="text/javascript">
+				var option_2 = "<?php echo $row_member['user_sectors2']; ?>";
+				var list = [
+					['주유소정보'],
+					['마트정보'],
+					['호텔', '휴양콘도', '리조트', '펜션', '민박', '게스트하우스'],
+					['한식', '중식', '일식', '기타'],
+					['장터정보'],
+					['기타정보']
+				];
+
+				var option_1 = $('select[name=user_sectors]').val();
+				function list_change(){
+					var idx = select_list();
+					for(var j = 0; j < list[idx].length; j++){
+						if(option_2 == list[idx][j]){
+							$('select[name=user_sectors2]').append('<option value="'+list[idx][j]+'" selected>'+list[idx][j]+'</option>');
+						}else{
+							$('select[name=user_sectors2]').append('<option value="'+list[idx][j]+'">'+list[idx][j]+'</option>');
+						}
+					}
+				}
+				list_change()
+				function select_list(){
+					if(option_1 == 'gas_station'){
+						return 0;
+					}else if(option_1 == 'mart'){
+						return 1;
+					}else if(option_1 == 'motel'){
+						return 2;
+					}else if(option_1 == 'restaurant'){
+						return 3;
+					}else if(option_1 == 'marketplace'){
+						return 4;
+					}else if(option_1 == 'etc'){
+						return 5;
+					}
+				}
+				$('select[name=user_sectors]').on('change', function(){
+					$('select[name=user_sectors2] option').remove();
+					option_1 = $('select[name=user_sectors]').val();
+					list_change();
+				});
+				//console.log(option_1);
+			</script>
 			<div class="write_line">
                 <div class="all_line">
                     <div class="line_title">
@@ -90,16 +138,16 @@
 						<input type="file" name="upload_image[]" placeholder="이미지를 선택하세요" />&nbsp;<a href="javascript:image_tag_add();">[이미지추가]</a>
 						<div id="image_upload_tag"></div>
 						<?php
-							$sql_files = "select * from file_list where board_type = 'franchisee' and board_idx = '".$_GET['idx']."'";
-							$result_files = mysqli_query($link, $sql_files);
+							// $sql_files = "select * from file_list where board_type = 'franchisee' and board_idx = '".$_GET['idx']."'";
+							// $result_files = mysqli_query($link, $sql_files);
 
-							$i = 1;
-							while($row_files = mysqli_fetch_array($result_files)) {
+							// $i = 1;
+							// while($row_files = mysqli_fetch_array($result_files)) {
 						?>
-								<a href="/upload/img/<?=$row_files['real_file_name']?>" target="_blank">[이미지보기<?=$i?>]</a><a href="javascript:image_delete('<?=$row_files['idx']?>')">[이미지 삭제]</a><br/>
+								<!-- <a href="/upload/img/<?=$row_files['real_file_name']?>" target="_blank">[이미지보기<?=$i?>]</a><a href="javascript:image_delete('<?=$row_files['idx']?>')">[이미지 삭제]</a><br/> -->
 						<?php
-								$i++;
-							}
+							// 	$i++;
+							// }
 						?>
                     </div>
                 </div>

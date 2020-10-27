@@ -1,31 +1,31 @@
-<?php include_once $_SERVER['DOCUMENT_ROOT']."/as_admin/include/admin_header.php"; ?>
+<?php 
+
+include_once $_SERVER['DOCUMENT_ROOT']."/inc/init_config.php";
+include_once $_SERVER['DOCUMENT_ROOT']."/inc/library.php";
+
+include_once $_SERVER['DOCUMENT_ROOT']."/as_admin/include/admin_header.php";
+?>
 <?php
 	if(!$_GET['page']) $page = 1;
 	else $page = $_GET['page'];
 ?>
+
 <div class="con_main">
     <form action="" method="get">
         <table>
             <colgroup>
                 <col width="100">
-                <col width="200">
                 <col width="250">
+                <col width="450">
                 <col width="200">
                 <col width="200">
-                <col width="200">
-                <col width="200">
-				<col width="200">
-				<col width="200">
             </colgroup>
             <thead>
                 <tr>
 					<th>번호</th>
                     <th>제목</th>
-                    <th>모델이름</th>
-                    <th>가격</th>
-                    <th>할인가격</th>
-                    <th>NEW</th>
-                    <th>BEST</th>
+                    <th>내용</th>
+                    <th>등록일</th>
 					<th>관리</th>
                 </tr>
             </thead>
@@ -47,16 +47,17 @@
 				$array_table_set = "idx";
 				$array_sort = "desc";
 				
-				$where = "";
+                $where = "";
+                $where = "and board_type = 'notice'";
 				if($_GET['study_search']) {
 					//$where .= " and study = '".$_GET['study_search']."'"; 
 				}
 
-				$sql = "select * from shopping where 1=1 ".$where." order by ".$array_table_set." ".$array_sort." limit " .(($page-1)*$page_set).",".$page_set;
+				$sql = "select * from board where 1=1 ".$where." order by ".$array_table_set." ".$array_sort." limit " .(($page-1)*$page_set).",".$page_set;
 				$result = mysqli_query($link, $sql);				
 				//$count = mysqli_num_rows($result);
 
-				$sql2 = "select * from shopping where 1=1 ".$where."";
+				$sql2 = "select * from board where 1=1 ".$where."";
 				$result2 = mysqli_query($link, $sql2);								
 				$total = mysqli_num_rows($result2);
 
@@ -75,24 +76,15 @@
 						<tr>
 							<td><?=$total-($page-1)*$page_set-$i?></td>
 							<td>
-								<?=$row['subject'] ?>
+                                <?=$row['subject'] ?>
 							</td>
 							<td>
-								<?=$row['model_name'] ?>
+								<div style="height:61px; overflow: hidden; display: inline-block; vertical-align: middle;"><?=$row['contents'] ?></div>
 							</td>
 							<td>
-								<?=$row['price']?>
-							</td>
-							<td>
-								<?=$row['discount']?>
-							</td>
-							<td>
-								<?=$row['new_status']?>
-							</td>
-							<td>
-								<?=$row['best_status']?>
-							</td>							
-							<td class="delete_box"><a href="javascript:control('<?=$row['user_id']?>');">삭제</a><a href="/as_admin/shopping_regist_form.php?idx=<?=$row['idx']?>&board_type=franchisee_modify" style="background-color: #08AEEA; border:1px solid #0faeea; color: #fff;">수정</a></td>
+								<?=$row['reg_date']?>
+							</td>				
+							<td class="delete_box"><a href="javascript:control('<?=$row['idx']?>');">삭제</a><a href="/as_admin/notice_regist_form.php?idx=<?=$row['idx']?>&board_type=notice_modify" style="background-color: #08AEEA; border:1px solid #0faeea; color: #fff;">수정</a></td>
 						</tr>
 						<?php $i++; } ?>
 					<?php } ?>
@@ -104,11 +96,11 @@
 			?>
 			<?=print_pagelist($page, $total, $page_set, $block_set, $param); ?>
 		</div>
-		<!--
+		
         <div class="create" style="padding-bottom:10px;">
-			<a href="/admin_page/member_regist_form.php">등록</a>
+			<a href="/as_admin/notice_regist_form.php">등록</a>
         </div>
-		-->
+		
 		<input type="hidden" name="page" value="<?=$page?>" />
 	</form>
 	<form name="search_form" action="{{ $_SERVER['REQUEST_URI'] }}" class="board_search_con" onsubmit="return search();">
@@ -128,7 +120,7 @@
 		if(confirm("삭제하시겠습니까?")) {
 			var formData = new FormData();
 			formData.append("idx", idx);
-			formData.append("board_type", "delete_franchisee");
+			formData.append("board_type", "delete_notice");
 
 			$.ajax({
 				type: 'post',

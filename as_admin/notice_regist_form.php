@@ -1,7 +1,7 @@
 <?php include_once $_SERVER['DOCUMENT_ROOT']."/as_admin/include/admin_header.php"; ?>
 <?php
-	if($_GET['board_type'] == "franchisee_modify") {
-		$sql_modify = "select * from shopping where idx = '".$_GET['idx']."'";
+	if($_GET['board_type'] == "notice_modify") {
+		$sql_modify = "select * from board where idx = '".$_GET['idx']."'";
 		$result_modify = mysqli_query($link, $sql_modify);
 		$row_member = mysqli_fetch_array($result_modify);
 	}
@@ -10,10 +10,10 @@
 <div class="con_main">
     <form action="/action/write_action.php" method="post" style="margin-left:20px;" enctype="multipart/form-data">
 		<input type="hidden" name="idx" value="<?=$_GET['idx']?>" />
-		<input type="hidden" name="board_type" value="<?php if($_GET['board_type'] == "") { echo "shopping_add"; } else { echo "shopping_modify"; }?>" />
+		<input type="hidden" name="board_type" value="<?php if($_GET['board_type'] == "") { echo "inquiry_add"; } else { echo "inquiry_modify"; }?>" />
         <div class="write_box">
 			<div class="write_line">
-                <div class="all_line">
+                <div class="all_line all_line_top">
                     <div class="line_title">
                         제목
                     </div>
@@ -23,111 +23,9 @@
                 </div>
 			</div>
 			<div class="write_line">
-                <div class="all_line">
-                    <div class="line_title">
-						모델명
-                    </div>
-                    <div class="line_content">
-						<input type="text" name="model_name" placeholder="모델명을 입력하세요." style="width:400px;" value="<?=$row_member['model_name']?>" required />
-                    </div>
-                </div>
-			</div>
-			<div class="write_line">
-                <div class="all_line">
-                    <div class="line_title">
-						가격
-                    </div>
-                    <div class="line_content">
-						<input type="text" name="price" placeholder="가격을 입력하세요." value="<?=$row_member['price']?>" required />
-                    </div>
-                </div>
-			</div>
-			<div class="write_line">
-                <div class="all_line">
-                    <div class="line_title">
-						할인가격
-                    </div>
-                    <div class="line_content">
-						<input type="text" name="discount" placeholder="할인가격을 입력하세요." value="<?=$row_member['discount']?>" required />
-                    </div>
-                </div>
-			</div>
-			<div class="write_line">
-                <div class="all_line">
-                    <div class="line_title">
-						NEW
-                    </div>
-                    <div class="line_content">
-						<select name="new_status">
-							<option value="Y" <?=($row_member['new_status'] == 'Y') ? "selected" : ""; ?> >예</option>
-							<option value="N" <?=($row_member['new_status'] == 'N') ? "selected" : ""; ?> >아니오</option>
-						</select>
-                    </div>
-                </div>
-			</div>
-			<div class="write_line">
-                <div class="all_line">
-                    <div class="line_title">
-						BEST
-                    </div>
-                    <div class="line_content">
-						<select name="best_status">
-							<option value="Y" <?=($row_member['best_status'] == 'Y') ? "selected" : ""; ?> >예</option>
-							<option value="N" <?=($row_member['best_status'] == 'N') ? "selected" : ""; ?> >아니오</option>
-						</select>
-                    </div>
-                </div>
-			</div>
-			<div class="write_line">
-                <div class="all_line">
-                    <div class="line_title">
-						옵션 리스트
-                    </div>
-                    <div class="line_content">
-						<input type="text" name="option_name[]" placeholder="옵션을 선택하세요" />&nbsp;<a href="javascript:option_tag_add();">[옵션추가]</a>
-						<div id="option_upload_tag"></div>
-						<?php
-							$sql_files = "select * from product_option_list where product_idx = '".$_GET['idx']."'";
-							$result_files = mysqli_query($link, $sql_files);
-
-							$i = 1;
-							while($row_files = mysqli_fetch_array($result_files)) {
-						?>
-								<?=$row_files['option_name']?><a href="javascript:option_delete('<?=$row_files['idx']?>')">[옵션 삭제]</a><br/>
-						<?php
-								$i++;
-							}
-						?>
-                    </div>
-                </div>
-			</div>
-			<div class="write_line">
                 <div class="all_line all_line_bottom">
                     <div class="line_title">
-						상세이미지 리스트
-                    </div>
-                    <div class="line_content">
-						<input type="file" name="upload_image[]" placeholder="이미지를 임력하세요" />&nbsp;<a href="javascript:image_tag_add();">[이미지추가]</a>
-						<div id="image_upload_tag"></div>
-						<?php
-							$sql_files = "select * from file_list where board_type = 'shopping' and board_idx = '".$_GET['idx']."'";
-							$result_files = mysqli_query($link, $sql_files);
-
-							$i = 1;
-							while($row_files = mysqli_fetch_array($result_files)) {
-						?>
-								<a href="/upload/img/<?=$row_files['real_file_name']?>" target="_blank">[이미지보기<?=$i?>]</a><a href="javascript:image_delete('<?=$row_files['idx']?>')">[이미지 삭제]</a><br/>
-						<?php
-								$i++;
-							}
-						?>
-                    </div>
-                </div>
-			</div>
-			<div class="write_line">
-                <div class="all_line">
-                    <div class="line_title">
-						상세정보
+						내용
                     </div>
                     <div class="line_content">
 						<textarea id="editor" name="contents" cols="60" rows="10"><?=$row_member['contents']?></textarea>

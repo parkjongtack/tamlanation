@@ -1,4 +1,4 @@
-<?php include "include/admin_header.php"; ?>
+<?php include_once "include/admin_header.php"; ?>
 <?php
 
 	if(!$_SESSION['admin_user_id']) {

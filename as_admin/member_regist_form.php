@@ -1,4 +1,4 @@
-<?php include $_SERVER['DOCUMENT_ROOT']."/as_admin/include/admin_header.php"; ?>
+<?php include_once $_SERVER['DOCUMENT_ROOT']."/as_admin/include/admin_header.php"; ?>
 <?php
 	if($_GET['board_type'] == "user_modify") {
 		$sql_modify = "select * from as_account where user_id = '".$_GET['id']."'";

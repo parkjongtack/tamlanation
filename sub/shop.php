@@ -19,6 +19,27 @@
     </div>
     <div class="swiper-pagination"></div>
 </div>
+<div class="sub_nav_outer">
+    <ul>
+        <li>
+            쇼핑몰
+        </li>
+        <li>
+            <div><a href="/sub/company/ceo.php">회사소개</a></div>
+            <div><a href="/sub/tourism/gift_card.php">관광상품권</a></div>
+            <div><a href="/sub/franchisee/apply.php">가맹점</a></div>
+            <div><a href="#none">관광</a></div>
+            <div class="on"><a href="/sub/shop.php">쇼핑몰</a></div>
+            <div><a href="#none">고객센터</a></div>
+        </li>
+    </ul>
+    <ul>
+        <li>쇼핑몰</li>
+        <li>
+            <div><a href="/sub/franchisee/apply.php">쇼핑몰</a></div>
+        </li>
+    </ul>
+</div>
 <div class="sub sub_outer shop inner">
     <div class="page_subject">
         <h2>쇼핑몰</h2>

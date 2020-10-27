@@ -1,4 +1,4 @@
-<?php include $_SERVER['DOCUMENT_ROOT']."/as_admin/include/admin_header.php"; ?>
+<?php include_once $_SERVER['DOCUMENT_ROOT']."/as_admin/include/admin_header.php"; ?>
 <?php
 	if(!$_GET['page']) $page = 1;
 	else $page = $_GET['page'];

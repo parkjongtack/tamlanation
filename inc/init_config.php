@@ -4,10 +4,13 @@ error_reporting(0);
 header('Content-Type: text/html; charset=UTF-8');
 
 //세션
-session_start();
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+} 
 
 //db연결
-$link = mysqli_connect("localhost", "root", "", "dbtamrakuk");
+$link = mysqli_connect("db.tamrakuk.gabia.io", "tamrakuk", "rhksfleogod04", "dbtamrakuk");
 
 if (!$link) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;

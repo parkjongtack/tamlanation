@@ -1,7 +1,7 @@
 <?php
     
-	include $_SERVER['DOCUMENT_ROOT']."/inc/init_config.php";
-	include $_SERVER['DOCUMENT_ROOT']."/inc/library.php";
+	include_once $_SERVER['DOCUMENT_ROOT']."/inc/init_config.php";
+	include_once $_SERVER['DOCUMENT_ROOT']."/inc/library.php";
 
 	if($_SERVER['REQUEST_URI'] != "/as_admin/login.php" && $_SESSION['admin_user_id'] == "") {
 ?>
@@ -74,6 +74,11 @@
                         <div class="nav_sub"><a href="/as_admin/member_list.php">전체회원 목록</a></div>
                         <div class="nav_sub"><a href="/as_admin/general_member_list.php">일반회원 목록</a></div>
                         <div class="nav_sub"><a href="/as_admin/store_member_list.php">가맹점회원 목록</a></div>
+                    </div>
+                    <div class="na_title nav_img"><i class="fas fa-desktop"></i>고객센터</div>
+                    <div class="na_title dep2">
+                        <div class="nav_sub"><a href="/as_admin/notice_list.php">공지사항</a></div>
+                        <div class="nav_sub"><a href="/as_admin/inquiry_list.php">문의사항</a></div>
                     </div>
                     <!-- <div class="na_title nav_img"><i class="fas fa-desktop"></i>통계</div>
                     <div class="na_title dep2">

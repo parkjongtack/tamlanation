@@ -1,10 +1,9 @@
 <?php 
 
-include $_SERVER['DOCUMENT_ROOT']."/inc/init_config.php";
-include $_SERVER['DOCUMENT_ROOT']."/inc/library.php";
+include_once $_SERVER['DOCUMENT_ROOT']."/inc/init_config.php";
+include_once $_SERVER['DOCUMENT_ROOT']."/inc/library.php";
 
-include $_SERVER['DOCUMENT_ROOT']."/as_admin/include/admin_header.php"; 
-
+include_once $_SERVER['DOCUMENT_ROOT']."/as_admin/include/admin_header.php";
 ?>
 <?php
 	if(!$_GET['page']) $page = 1;
