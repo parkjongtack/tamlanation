@@ -58,8 +58,8 @@ select::-ms-expand{display: none;}
 .main_slider .swiper-pagination{top: 60%; transform: translateY(-50%); bottom: auto; left: auto; right: 360px; width: auto; text-align: left;}
 .main_slider .main_slider_dot{color: #fff; font-size: 16px; display: block; height: 40px;}
 .main_slider .swiper-pagination-bullet{background-color: transparent; opacity: 0.6; position: relative;display: block; width: auto;}
+.main_slider .swiper-pagination-bullet::after{display: inline-block; background-color: #fff; content: " "; width: 30px; height: 2px; vertical-align: middle; margin-left: 5px;}
 .main_slider .swiper-pagination-bullet-active{background-color: transparent; opacity: 1;}
-.main_slider .swiper-pagination-bullet-active::after{display: inline-block; background-color: #fff; content: " "; width: 30px; height: 2px; vertical-align: middle; margin-left: 5px;}
 
 /*sub page slide*/
 
@@ -360,3 +360,21 @@ select::-ms-expand{display: none;}
 .submit_box_outer{text-align: center; margin-bottom: 100px;}
 .submit_box_outer input{text-align: center;border: 3px solid #00154a; color: #00154a; background-color: #fff; font-size: 18px; padding: 10px 20px; font-weight: 500; margin-top: 0px; cursor: pointer;}
 .submit_box_outer input:last-child{text-align: center;border: 2px solid #00154a; color: #00154a;}
+
+/*buy_gift*/
+.sale_action{margin-top: 100px; font-size: 0; font-family: 'SCDream';}
+.sale_action .form_outer{font-size: 16px; border: 2px solid #031c36; display: inline-block; width: 550px; margin: 0 23px;}
+.sale_action .form_outer form{padding: 25px 40px;}
+.sale_action .form_outer h3{color: #fff; font-size: 19px; background-color: #031c36; font-weight: 300; text-align: center;line-height: 40px;}
+.sale_action .form_outer h3 b{color: #84ecff; font-weight: 500;}
+.sale_action .form_outer p{color: #666666; font-weight: 300; display: inline-block;}
+.sale_action .form_outer label{margin: 0 20px 0 10px;}
+.sale_action .form_outer .bg{display: inline-block; background-color: #f6f6f6; padding: 5px; font-family: 'Noto Sans KR'; margin-left: 5px; width: 380px;}
+.sale_action .form_outer .no_bg{display: inline-block; padding: 5px; width: 390px; font-family: 'Noto Sans KR';}
+.sale_action .form_outer .no_bg p{color: #222;}
+.sale_action .form_outer .no_bg p span{color: #888888; font-size: 14px; letter-spacing: -1px;}
+.sale_action .form_outer .no_bg input{padding: 5px; background-color: #f6f6f6; border: 1px solid #f6f6f6; width: 78px;}
+.sale_action .form_outer .submit_box{text-align: center; margin: 10px 0 20px;}
+.sale_action .form_outer .submit_box input{padding: 10px 35px; border: 0; background-color: #ff5100; color: #fff;}
+.sale_action .orange{color: #ff5100; font-size: 16px; text-align: center; margin: 40px 0 60px;}
+.sale_action .orange a{color: #031c36; font-size: 16px; text-align: center; border-bottom: 1px solid #031c36;}

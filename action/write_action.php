@@ -671,9 +671,9 @@
 		if($_POST['wish_buy'] == 'cart'){
 			$sql = "insert into cart set price = '".$_POST['price']."', discount = '".$_POST['discount']."', product_idx = '".$_POST['product_idx']."', user_id = '".$_SESSION['user_id']."'";
 			$result = mysqli_query($link, $sql);
-			echo $sql;
+			// echo $sql;
 			
-			//echo "<script>alert('정상적으로 장바구니에 담았습니다.');location.href = '/sub/my_page/basket.php';</script>";
+			echo "<script>alert('정상적으로 장바구니에 담았습니다.');location.href = '/sub/my_page/basket.php';</script>";
 			exit;
 		}else if($_POST['wish_buy'] == 'buy'){
 
@@ -685,8 +685,49 @@
 			$now = date("ymdHis"); //오늘의 날짜 년월일시분초 
 			// $rand = strtoupper(substr(uniqid(sha1(time())),0,4)) ; //임의의난수발생 앞6자리 
 			$orderNum = $now.$last_uid;
+			echo "<script>alert('정상적으로 장바구니에 담았습니다.');</script>";
 			
-			$sql = "update order_table set option = '".$_POST['option']."', order_number = '".$orderNum."', order_status = '주문접수', settle_type = '".$_POST['settle_type']."', amount = '".$_POST['product_cnt']."', product_name = '".$_POST['product_name']."', order_date = '".$now."', price = '".$_POST['price']."', discount = '".$_POST['discount']."', product_idx = '".$_POST['product_idx']."', user_id = '".$_SESSION['user_id']."' where idx='".$last_uid."'";
+			$sql = "update order_table set `option` = '".$_POST['option']."', order_number = '".$orderNum."', order_status = '주문접수', settle_type = '".$_POST['settle_type']."', amount = '".$_POST['product_cnt']."', product_name = '".$_POST['product_name']."', order_date = '".$now."', price = '".$_POST['price']."', discount = '".$_POST['discount']."', product_idx = '".$_POST['product_idx']."', user_id = '".$_SESSION['user_id']."' where idx='".$last_uid."'";
+			$result = mysqli_query($link, $sql);
+			// echo $sql;
+			
+			echo "<script>location.href = '/sub/order_completed.php';</script>";
+			exit;
+		}
+
+	}
+
+	if($write_type == "buy_gift"){
+
+		if($_POST['buy_gift_type'] == 'on'){
+			$sql_null = "insert into order_table set order_status = '주문접수'";
+			$insert_null = mysqli_query($link, $sql_null);
+			$last_uid = mysqli_insert_id($link);
+
+			// gen order no
+			$now = date("ymdHis"); //오늘의 날짜 년월일시분초 
+			// $rand = strtoupper(substr(uniqid(sha1(time())),0,4)) ; //임의의난수발생 앞6자리 
+			$orderNum = $now.$last_uid;
+			
+			
+			$sql = "update order_table set `option` = '".$_POST['product_name']."', order_number = '".$orderNum."', order_status = '주문접수', settle_type = '".$_POST['settle_type']."', amount = '".$_POST['product_cnt']."', product_name = '".$_POST['product_name']."', order_date = '".$now."', price = '".$_POST['price']."', discount = '".$_POST['price']."', product_idx = '".$_POST['product_idx']."', user_id = '".$_SESSION['user_id']."' where idx='".$last_uid."'";
+			$result = mysqli_query($link, $sql);
+			// echo $sql;
+			
+			echo "<script>location.href = '/sub/order_completed.php';</script>";
+			exit;
+		}else if($_POST['buy_gift_type'] == 'off'){
+			$sql_null = "insert into order_table set order_status = '주문접수'";
+			$insert_null = mysqli_query($link, $sql_null);
+			$last_uid = mysqli_insert_id($link);
+
+			// gen order no
+			$now = date("ymdHis"); //오늘의 날짜 년월일시분초 
+			// $rand = strtoupper(substr(uniqid(sha1(time())),0,4)) ; //임의의난수발생 앞6자리 
+			$orderNum = $now.$last_uid;
+			
+			
+			$sql = "update order_table set `option` = '".$_POST['product_name']."', order_number = '".$orderNum."', order_status = '주문접수', settle_type = '".$_POST['settle_type']."', amount = '".$_POST['product_cnt']."', product_name = '".$_POST['product_name']."', order_date = '".$now."', price = '".$_POST['price']."', discount = '".$_POST['price']."', product_idx = '".$_POST['product_idx']."', user_id = '".$_SESSION['user_id']."' where idx='".$last_uid."'";
 			$result = mysqli_query($link, $sql);
 			// echo $sql;
 			
