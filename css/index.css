@@ -7,6 +7,7 @@ html, body{font-family: 'Noto Sans KR';}
 select{-moz-appearance: none; -webkit-appearance: none; background: url('/img/select_arrow.png') no-repeat; background-position: 95% center;}
 select::-ms-expand{display: none;}
 .ft_gmarket{font-family: 'gmarket';}
+.ft_sd{font-family: 'SCDream';}
 
 /*header*/
 #header{height: 90px; position: absolute; z-index: 11; width: 100%; vertical-align: middle; line-height: 90px; vertical-align: middle; border-bottom: 1px solid rgba(255,255,255,0.4);}

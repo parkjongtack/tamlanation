@@ -1,14 +1,14 @@
 <?php
-    include $_SERVER['DOCUMENT_ROOT']."/include/head.php";
+    include $_SERVER['DOCUMENT_ROOT']."/mobile/include/head.php";
 ?>
 <script src="https://kit.fontawesome.com/7f5faa19ba.js" crossorigin="anonymous"></script>
 <div class="main_slider swiper-container sub_slide">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
-            <img src="/img/sub_slide_img01.png" alt="슬라이드1">
+            <img src="/img/m_sub_slide_img01.png" alt="슬라이드1">
         </div>
         <div class="swiper-slide">
-            <img src="/img/sub_slide_img02.png" alt="슬라이드2">
+            <img src="/img/m_sub_slide_img02.png" alt="슬라이드2">
         </div>
     </div>
     <div class="swiper-pagination"></div>
@@ -39,7 +39,10 @@
     </ul>
 </div>
 <div class="sub sub_outer inner">
-    <img src="/img/sub2_5.png" alt="">
+    <div class="page_subject">
+        <h2>상품권 구매신청</h2>
+    </div>
+    <img src="/img/m_sub2_5.png" alt="">
     <div class="sale_action">
         <div class="form_outer">
             <h3><b>온라인</b> 상품권 구매신청</h3>
@@ -69,7 +72,8 @@
                     <p>구매장수</p>
                     <div class="no_bg">
                         <input type="text" name="product_cnt">
-                        <p>장(매) <span>*구매하고자 하는 상품권의 수량을 입력하세요.</span></p>
+                        <p>장(매)</p>
+                         <span>*구매하고자 하는 상품권의 수량을 입력하세요.</span>
                     </div>
                 </div>
                 <div class="submit_box">
@@ -105,7 +109,8 @@
                     <p>구매장수</p>
                     <div class="no_bg">
                         <input type="text" name="product_cnt">
-                        <p>장(매) <span>*구매하고자 하는 상품권의 수량을 입력하세요.</span></p>
+                        <p>장(매)</p>
+                        <span>*구매하고자 하는 상품권의 수량을 입력하세요.</span>
                     </div>
                 </div>
                 <div class="submit_box">
@@ -150,5 +155,5 @@
     }
 </script>
 <?php
-    include $_SERVER['DOCUMENT_ROOT']."/include/footer.php";
+    include $_SERVER['DOCUMENT_ROOT']."/mobile/include/footer.php";
 ?>

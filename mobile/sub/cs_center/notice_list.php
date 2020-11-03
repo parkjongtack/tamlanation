@@ -2,7 +2,7 @@
 	include_once $_SERVER['DOCUMENT_ROOT']."/inc/init_config.php";
 	include_once $_SERVER['DOCUMENT_ROOT']."/inc/library.php";
 
-    include_once $_SERVER['DOCUMENT_ROOT']."/include/head.php";
+    include_once $_SERVER['DOCUMENT_ROOT']."/mobile/include/head.php";
 ?>
 <?php
 	if(!$_GET['page']) $page = 1;
@@ -12,10 +12,10 @@
 <div class="main_slider swiper-container sub_slide">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
-            <img src="/img/sub_slide_img01.png" alt="슬라이드1">
+            <img src="/img/m_sub_slide_img01.png" alt="슬라이드1">
         </div>
         <div class="swiper-slide">
-            <img src="/img/sub_slide_img02.png" alt="슬라이드2">
+            <img src="/img/m_sub_slide_img02.png" alt="슬라이드2">
         </div>
     </div>
     <div class="swiper-pagination"></div>
@@ -26,34 +26,43 @@
             고객센터
         </li>
         <li>
-            <div><a href="/sub/company/ceo.php">회사소개</a></div>
-            <div><a href="/sub/tourism/gift_card.php">관광상품권</a></div>
-            <div><a href="/sub/franchisee/apply.php">가맹점</a></div>
+            <div><a href="/mobile/sub/company/ceo.php">회사소개</a></div>
+            <div><a href="/mobile/sub/tourism/gift_card.php">관광상품권</a></div>
+            <div><a href="/mobile/sub/franchisee/apply.php">가맹점</a></div>
             <div><a href="#none">관광</a></div>
-            <div><a href="/sub/shop.php">쇼핑몰</a></div>
-            <div class="on"><a href="/sub/cs_center/notice_list.php">고객센터</a></div>
+            <div><a href="/mobile/sub/shop.php">쇼핑몰</a></div>
+            <div class="on"><a href="/mobile/sub/cs_center/notice_list.php">고객센터</a></div>
         </li>
     </ul>
     <ul>
         <li>TRK 공지</li>
         <li>
-            <div class="on"><a href="/sub/cs_center/notice_list.php">TRK 공지</a></div>
-            <div><a href="/sub/cs_center/inquiry.php">문의사항</a></div>
+            <div class="on"><a href="/mobile/sub/cs_center/notice_list.php">TRK 공지</a></div>
+            <div><a href="/mobile/sub/cs_center/inquiry.php">문의사항</a></div>
         </li>
     </ul>
 </div>
-<div class="sub sub_outer cs_center">
+<div class="sub sub_outer cs_center mypage">
     <div class="page_subject inner">
         <h2>TRK 공지</h2>
     </div>
     <div class="inner">
-        <ul class="notice" style="">
-            <li>
-                <div class="notice_num">번호</div>
-                <div class="notice_title">제목</div>
-                <div class="notice_name">작성자</div>
-                <div class="notice_date">등록일</div>
-            </li>
+        <table>
+            <colgroup>
+                <col width="10%">
+                <col width="*">
+                <col width="15%">
+                <col width="25%">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>등록일</th>
+                </tr>
+                
+            
             <?php
                 $page_set = 10;
 				$block_set = 10;
@@ -94,18 +103,25 @@
                     <div class="notice_date"></div>
                 </li>
                 <?php
-                }else{$i = 0;
+                }else{$i = 1;
 				while($row = mysqli_fetch_array($result)) { ?>
 
-            <li>
+            <tr>
+                <td><?=$i?></td>
+                <td><a href="/mobile/sub/cs_center/notice_view.php?idx=<?=$row['idx']?>"><?=$row['subject']?></a></td>
+                <td>관리자</td>
+                <td><?=substr($row['reg_date'],0,10)?></td>
+            </tr>
+            <!-- <li>
                 <div class="notice_num"><?=$i?></div>
-                <div class="notice_title"><a href="/sub/cs_center/notice_view.php?idx=<?=$row['idx']?>"><?=$row['subject']?></a></div>
+                <div class="notice_title"><a href="/mobile/sub/cs_center/notice_view.php?idx=<?=$row['idx']?>"><?=$row['subject']?></a></div>
                 <div class="notice_name">관리자</div>
                 <div class="notice_date"><?=$row['reg_date']?></div>
-            </li>
+            </li> -->
             <?php $i++; } } ?>
             
-        </ul>
+            </tbody>
+        </table>
         <div class="paging">
                 <?php
                     $param = "order_table=".$_GET['order_table']."&orderby=".$_GET['orderby']."&study_search=".$_GET['study_search'];
@@ -125,5 +141,5 @@
 	}
 </script>
 <?php
-    include $_SERVER['DOCUMENT_ROOT']."/include/footer.php";
+    include $_SERVER['DOCUMENT_ROOT']."/mobile/include/footer.php";
 ?>

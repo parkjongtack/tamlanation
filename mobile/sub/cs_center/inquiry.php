@@ -2,7 +2,7 @@
 	include_once $_SERVER['DOCUMENT_ROOT']."/inc/init_config.php";
 	include_once $_SERVER['DOCUMENT_ROOT']."/inc/library.php";
 
-    include_once $_SERVER['DOCUMENT_ROOT']."/include/head.php";
+    include_once $_SERVER['DOCUMENT_ROOT']."/mobile/include/head.php";
 ?>
 <?php
 	if(!$_GET['page']) $page = 1;
@@ -12,10 +12,10 @@
 <div class="main_slider swiper-container sub_slide">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
-            <img src="/img/sub_slide_img01.png" alt="슬라이드1">
+            <img src="/img/m_sub_slide_img01.png" alt="슬라이드1">
         </div>
         <div class="swiper-slide">
-            <img src="/img/sub_slide_img02.png" alt="슬라이드2">
+            <img src="/img/m_sub_slide_img02.png" alt="슬라이드2">
         </div>
     </div>
     <div class="swiper-pagination"></div>
@@ -47,7 +47,7 @@
         <h2>문의사항</h2>
     </div>
     <div class="inner">
-        <form action="/action/write_action.php" method="post" style="margin-left:20px;" enctype="multipart/form-data">
+        <form action="/action/write_action.php" method="post" style="" enctype="multipart/form-data">
             <input type="hidden" name="board_type" value="inquiry_add" />
             <div class="form_inner">
                 <div class="form_line">
@@ -173,5 +173,5 @@
         }
     </script>
 <?php
-    include $_SERVER['DOCUMENT_ROOT']."/include/footer.php";
+    include $_SERVER['DOCUMENT_ROOT']."/mobile/include/footer.php";
 ?>

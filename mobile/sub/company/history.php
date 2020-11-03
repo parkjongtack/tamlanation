@@ -19,26 +19,53 @@
             회사소개
         </li>
         <li>
-            <div class="on"><a href="/sub/company/ceo.php">회사소개</a></div>
-            <div><a href="/sub/tourism/gift_card.php">관광상품권</a></div>
-            <div><a href="/sub/franchisee/apply.php">가맹점</a></div>
+            <div class="on"><a href="/mobile/sub/company/ceo.php">회사소개</a></div>
+            <div><a href="/mobile/sub/tourism/gift_card.php">관광상품권</a></div>
+            <div><a href="/mobile/sub/franchisee/apply.php">가맹점</a></div>
             <div><a href="#none">관광</a></div>
-            <div><a href="/sub/shop.php">쇼핑몰</a></div>
+            <div><a href="/mobile/sub/shop.php">쇼핑몰</a></div>
             <div><a href="#none">고객센터</a></div>
         </li>
     </ul>
     <ul>
         <li>TRK 연혁</li>
         <li>
-            <div><a href="/sub/company/ceo.php">대표인사말</a></div>
-            <div class="on"><a href="/sub/company/history.php">TRK 연혁</a></div>
-            <div><a href="/sub/company/location.php">TRK 위치</a></div>
+            <div><a href="/mobile/sub/company/ceo.php">대표인사말</a></div>
+            <div class="on"><a href="/mobile/sub/company/history.php">TRK 연혁</a></div>
+            <div><a href="/mobile/sub/company/location.php">TRK 위치</a></div>
         </li>
     </ul>
 </div>
 <div class="sub sub_outer inner">
-    
-    <img src="/img/sub1_2.png" alt="">
+    <div class="page_subject">
+        <h2>TRK 연혁</h2>
+    </div>
+    <div class="inside">
+        <img src="/img/m_sub1_2.png" alt="">
+        <div class="text_area">
+            <h2 class="ft_sd blue">회사연혁</h2>
+            <div class="flex">
+                <p class="left year">
+                    2019년<br/><br/>
+                    2018년<br/>
+                    2017년<br/>
+                    2016년<br/><br/>
+                    2015년<br/>
+                    2013년<br/>
+                </p>
+                <p class="right content">
+                    <span class="dot"></span>탐라국관광상품권 가맹점 모집시작<br/>
+                    <span class="dot"></span>탐라국 관광상품권 출시 <br/>
+                    <span class="dot"></span>탐라국황칠농장 개발 <br/>
+                    <span class="dot"></span>탐라국관광호텔 200실 허가득(서귀포시대포동121)<br/>
+                    <span class="dot"></span>주식회사 탐라국 여행사 사이트 기획제작<br/>
+                    <span class="dot"></span>홈페이지 개편 / 탐라국 쇼핑몰 오픈<br/>
+                    <span class="dot"></span>탐라국 홈페이지 오픈<br/>
+                    <span class="dot"></span>주식회사 탐라국 설립 / 주식회사 탐라국 여행사 설립
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 <script>
 
