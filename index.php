@@ -1,6 +1,9 @@
 <?php
 	include $_SERVER['DOCUMENT_ROOT']."/inc/init_config.php";
-	include $_SERVER['DOCUMENT_ROOT']."/inc/library.php";
+    include $_SERVER['DOCUMENT_ROOT']."/inc/library.php";
+    if($mobile_check == "/mobile"){
+        echo '<script>location.href="/mobile/"</script>';
+    }
     include $_SERVER['DOCUMENT_ROOT']."/include/head.php";
 ?>
 <div class="main_slider swiper-container">
