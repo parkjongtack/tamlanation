@@ -7,7 +7,7 @@ header('Content-Type: text/html; charset=UTF-8');
 if(!isset($_SESSION)) 
 { 
     session_start(); 
-} 
+}
 
 //db연결
 $link = mysqli_connect("db.tamrakuk.gabia.io", "tamrakuk", "rhksfleogod04", "dbtamrakuk");
@@ -21,5 +21,19 @@ if (!$link) {
 
 //echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
 //echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
+
+function m_check(){
+    $mAgent = array("iPhone","iPod","Android","Blackberry", 
+    "Opera Mini", "Windows ce", "Nokia", "sony" );
+    $chkMobile = false;
+    for($i=0; $i<sizeof($mAgent); $i++){
+        if(stripos( $_SERVER['HTTP_USER_AGENT'], $mAgent[$i] )){
+            $chkMobile = true;
+            break;
+        }
+    }
+    return $chkMobile;
+}
+$mobile_check = (m_check() == true) ? "/mobile" : "";
 
 ?>

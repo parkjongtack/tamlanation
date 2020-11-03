@@ -1,5 +1,5 @@
 <?php
-    include $_SERVER['DOCUMENT_ROOT']."/include/head.php";
+    include $_SERVER['DOCUMENT_ROOT']."/mobile/include/head.php";
 ?>
 <script src="https://kit.fontawesome.com/7f5faa19ba.js" crossorigin="anonymous"></script>
 <div class="main_slider swiper-container sub_slide">
@@ -28,30 +28,21 @@
         </li>
     </ul>
     <ul>
-        <li>TRK 위치</li>
+        <li>TRK 연혁</li>
         <li>
             <div><a href="/sub/company/ceo.php">대표인사말</a></div>
-            <div><a href="/sub/company/history.php">TRK 연혁</a></div>
-            <div class="on"><a href="/sub/company/location.php">TRK 위치</a></div>
+            <div class="on"><a href="/sub/company/history.php">TRK 연혁</a></div>
+            <div><a href="/sub/company/location.php">TRK 위치</a></div>
         </li>
     </ul>
 </div>
-<div class="sub sub_outer inner" style="position:relative;">
+<div class="sub sub_outer inner">
     
-    <img src="/img/sub1_3.png" alt="">
-    <div class="map_outer">
-        <div id="daumRoughmapContainer1603976986923" class="root_daum_roughmap root_daum_roughmap_landing"></div>
-        <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
-        <script charset="UTF-8">
-            new daum.roughmap.Lander({
-                "timestamp" : "1603976986923",
-                "key" : "22q4g",
-                "mapWidth" : "730",
-                "mapHeight" : "470"
-            }).render();
-        </script>
-    </div>
+    <img src="/img/sub1_2.png" alt="">
 </div>
+<script>
+
+</script>
 <?php
-    include $_SERVER['DOCUMENT_ROOT']."/include/footer.php";
+    include $_SERVER['DOCUMENT_ROOT']."/mobile/include/footer.php";
 ?>

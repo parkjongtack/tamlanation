@@ -1,7 +1,7 @@
 <?php
 	include $_SERVER['DOCUMENT_ROOT']."/inc/init_config.php";
 	include $_SERVER['DOCUMENT_ROOT']."/inc/library.php";
-    include $_SERVER['DOCUMENT_ROOT']."/moblie/include/head.php";
+    include $_SERVER['DOCUMENT_ROOT']."/mobile/include/head.php";
 ?>
 <div class="main_slider swiper-container">
     <div class="swiper-wrapper">
@@ -34,8 +34,7 @@
             });
 </script>
 <div class="main_search_area">
-    <div class="inner">
-        <div class="search_select_box box_shadow" data-aos="fade-up">
+<div class="search_select_box box_shadow" data-aos="fade-up">
             <form action="<?=$_SERVER['PHP_SELF']?>" method="get">
                 <div class="form_line_">
                     <select name="" id="">
@@ -47,7 +46,6 @@
                         <option value="jeju" <?=($_GET['city'] == "jeju") ? "selected" : ""; ?> >제주시</option>
                         <option value="seogipo" <?=($_GET['city'] == "seogipo") ? "selected" : ""; ?> >서귀포시</option>
                     </select>
-                    <span class="select_line"></span>
                     <select name="user_sectors" required>
                         <option value="gas_station" <?=($_GET['user_sectors'] == "gas_station") ? "selected" : ""; ?> >주유소정보</option>
                         <option value="mart" <?=($_GET['user_sectors'] == "mart") ? "selected" : ""; ?> >마트정보</option>
@@ -59,12 +57,13 @@
                     <span class="select_line"></span>
                     <select name="user_sectors2" id="">
                     </select>
-                    <span class="select_line"></span>
                     <input type="text" name="user_store_name" placeholder="업소 검색" value="<?=$_GET['user_store_name']?>">
                 </div>
                 <input type="submit" value="검색">
             </form>
         </div>
+    <div class="inner">
+        
         <div class="franchise_area">
             <div class="fran_title">
                 <p>가맹점</p>
@@ -143,7 +142,7 @@
                 $sql2 = "select * from franchisee where 1=1 ".$where."";
 				$result2 = mysqli_query($link, $sql2);								
                 $total = mysqli_num_rows($result2);
-                echo $total;
+                // echo $total;
 
 				$pageCnt = (($total-1)/$page_set) +1;						//전체 페이지의 수
                 if($page > $pageCnt) $page = 1;
@@ -170,7 +169,7 @@
                 <script>
                     $(document).ready(function(){
                         <?php if($_GET['user_sectors']){ ?>
-                            $('html, body').animate({scrollTop:$('.search_select_box').offset().top-150},0);
+                            $('html, body').animate({scrollTop:$('.franchise_slide').offset().top-150},0);
                         <?php } ?>
                         var idx = $('.fran_list li.on').index();
                         $('.fran_list li.on').children('img').attr('src', '/img/main_nav0'+(idx+1)+'_on.png');
@@ -323,8 +322,8 @@
             </div>
             <script>
                 var swiper = new Swiper('.franchise_slide', {
-                slidesPerView: 4,
-                spaceBetween: 16,
+                slidesPerView: 1,
+                spaceBetween: 10,
                 loop: false,
                 speed: 1000,
                 navigation: {
@@ -337,17 +336,15 @@
     </div>
 </div>
 <div class="contact_area">
-    <div class="inner">
-        <div class="box_shadow" data-aos="fade-right">
-            <a href="#none">
-                <img src="/img/contact_area_img01.png" alt="">
-            </a>
-        </div>
-        <div class="box_shadow" data-aos="fade-left">
-            <a href="#none">
-                <img src="/img/contact_area_img02.png" alt="">
-            </a>
-        </div>
+    <div class="box_shadow" data-aos="fade-right">
+        <a href="#none">
+            <img src="/img/contact_area_img01.png" alt="">
+        </a>
+    </div>
+    <div class="box_shadow" data-aos="fade-left">
+        <a href="#none">
+            <img src="/img/contact_area_img02.png" alt="">
+        </a>
     </div>
 </div>
 <div class="giftcard_area">
@@ -362,88 +359,88 @@
             </div>
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <div class="img_area">
+                    <!-- <div class="img_area">
                         <div class="img_">
                             <img src="/img/giftcard_slide_img01.png" alt="">
-                        </div>
-                        <a href="#none" class="read_more"><img src="/img/giftcard_slide_read_btn.png" alt=""></a>
-                    </div>
+                        </div>                        
+                    </div> -->
                     <div class="text_area">
                         <h3>관광상품권이란?</h3>
                         <span class="line_"></span>
                         <p>
-                            다양한 곳에서 사용할 수 있기에<br>
-                            여행을 좋아하는 분들에게 제격인<br>
-                            상품권입니다.
+                            다양한 곳에서 사용할 수 있기에<br/>
+                            여행을 좋아하는 분들에게 제격인<br/>
+                            상품권입니다.<br/>
                         </p>
+                        <a href="#none" class="read_more"><em>Read More</em></a>
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="img_area">
+                    <!-- <div class="img_area">
                         <div class="img_">
                             <img src="/img/giftcard_slide_img01.png" alt="">
-                        </div>
-                        <a href="#none" class="read_more"><img src="/img/giftcard_slide_read_btn.png" alt=""></a>
-                    </div>
+                        </div>                        
+                    </div> -->
                     <div class="text_area">
                         <h3>상품권구매신청</h3>
                         <span class="line_"></span>
                         <p>
-                            다양한 곳에서 사용할 수 있기에<br>
-                            여행을 좋아하는 분들에게 제격인<br>
-                            상품권입니다.
+                            다양한 곳에서 사용할 수 있기에<br/>
+                            여행을 좋아하는 분들에게 제격인<br/>
+                            상품권입니다.<br/>
                         </p>
+                        <a href="#none" class="read_more"><em>Read More</em></a>
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="img_area">
+                    <!-- <div class="img_area">
                         <div class="img_">
                             <img src="/img/giftcard_slide_img01.png" alt="">
-                        </div>
-                        <a href="#none" class="read_more"><img src="/img/giftcard_slide_read_btn.png" alt=""></a>
-                    </div>
+                        </div>                        
+                    </div> -->
                     <div class="text_area">
                         <h3>이용안내</h3>
                         <span class="line_"></span>
                         <p>
-                            다양한 곳에서 사용할 수 있기에<br>
-                            여행을 좋아하는 분들에게 제격인<br>
-                            상품권입니다.
+                            다양한 곳에서 사용할 수 있기에<br/>
+                            여행을 좋아하는 분들에게 제격인<br/>
+                            상품권입니다.<br/>
                         </p>
+                        <a href="#none" class="read_more"><em>Read More</em></a>
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="img_area">
+                    <!-- <div class="img_area">
                         <div class="img_">
                             <img src="/img/giftcard_slide_img01.png" alt="">
-                        </div>
-                        <a href="#none" class="read_more"><img src="/img/giftcard_slide_read_btn.png" alt=""></a>
-                    </div>
+                        </div>                        
+                    </div> -->
                     <div class="text_area">
                         <h3>상품권 혜택</h3>
                         <span class="line_"></span>
                         <p>
-                            다양한 곳에서 사용할 수 있기에<br>
-                            여행을 좋아하는 분들에게 제격인<br>
-                            상품권입니다.
+                            다양한 곳에서 사용할 수 있기에<br/>
+                            여행을 좋아하는 분들에게 제격인<br/>
+                            상품권입니다.<br/>
                         </p>
+                        <a href="#none" class="read_more"><em>Read More</em></a>
                     </div>
                 </div>
                 <div class="swiper-slide">
-                    <div class="img_area">
+                    <!-- <div class="img_area">
                         <div class="img_">
                             <img src="/img/giftcard_slide_img01.png" alt="">
-                        </div>
-                        <a href="#none" class="read_more"><img src="/img/giftcard_slide_read_btn.png" alt=""></a>
-                    </div>
+                        </div>                        
+                    </div> -->
                     <div class="text_area">
                         <h3>상품권 약관</h3>
                         <span class="line_"></span>
                         <p>
-                            다양한 곳에서 사용할 수 있기에<br>
-                            여행을 좋아하는 분들에게 제격인<br>
-                            상품권입니다.
+                            다양한 곳에서 사용할 수 있기에<br/>
+                            여행을 좋아하는 분들에게 제격인<br/>
+                            상품권입니다.<br/>
                         </p>
+                        <a href="#none" class="read_more"><em>Read More</em></a>
                     </div>
                 </div>
             </div>
@@ -479,6 +476,12 @@
     </div>
 </div>
 <div class="main_notice_area">
+    <div class="shop_area">
+        <a href="/sub/shop.php"><img src="/img/shop_area_img01.png" alt=""></a>
+    </div>
+    <div class="tel_area">
+        <img src="/img/tel_area_img01.png" alt="">
+    </div>
     <div class="inner">
         <div class="notice_list_area">
             <div class="notice_title">
@@ -510,14 +513,8 @@
                 </li>
             </ul>
         </div>
-        <div class="shop_area box_shadow">
-            <a href="/sub/shop.php"><img src="/img/shop_area_img01.png" alt=""></a>
-        </div>
-        <div class="tel_area box_shadow">
-            <img src="/img/tel_area_img01.png" alt="">
-        </div>
     </div>
 </div>
 <?php
-    include $_SERVER['DOCUMENT_ROOT']."/moblie/include/footer.php";
+    include $_SERVER['DOCUMENT_ROOT']."/mobile/include/footer.php";
 ?>

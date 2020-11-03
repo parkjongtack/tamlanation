@@ -13,7 +13,8 @@
     <script src="/js/swiper.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="/js/index.js"></script>
+    <script src="/js/m_index.js"></script>
 </head>
 <?php
-    include $_SERVER['DOCUMENT_ROOT']."/moblie/include/header.php";
+    include $_SERVER['DOCUMENT_ROOT']."/mobile/include/header.php";
 ?>

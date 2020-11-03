@@ -11,7 +11,7 @@
 			$sql = "insert into as_account set user_id = '".$_POST['user_id']."', user_passwd = '".md5($_POST['user_passwd'])."', user_address_number = '".$_POST['user_address_number']."', user_address = '".$_POST['user_address']."', user_address_detail = '".$_POST['user_address_detail']."', user_phone = '".$_POST['user_phone1']."-".$_POST['user_phone2']."-".$_POST['user_phone3']."', user_email = '".$_POST['user_email1']."@".$_POST['user_email2']."', user_type = '1', user_birthday = '".$_POST['user_birthday']."', user_name = '".$_POST['user_name']."', check_join = 'Y'";
 			$result = mysqli_query($link, $sql);
 
-			echo "<script>alert('일반회원 가입이 완료되었습니다.');location.href = '/sub/login.php';</script>";
+			echo "<script>alert('일반회원 가입이 완료되었습니다.');location.href = '".$mobile_check."/sub/login.php';</script>";
 			exit;
 
         }else if($_POST['join_type'] == '2'){
@@ -21,7 +21,7 @@
 			//echo $sql;
 			//exit;
 
-			echo "<script>alert('가맹점 회원 가입이 완료되었습니다. 관리자 승인 이후에 정식으로 활동 가능합니다.');location.href = '/sub/login.php';</script>";
+			echo "<script>alert('가맹점 회원 가입이 완료되었습니다. 관리자 승인 이후에 정식으로 활동 가능합니다.');location.href = '".$mobile_check."/sub/login.php';</script>";
 			exit;
 
         }
@@ -622,14 +622,13 @@
 
 			$_SESSION['user_id'] = $row_member['user_id'];
 			$_SESSION['user_type'] = 1;
-			// if(isset($_SESSION['user_id'])){
-			// 	echo $_SESSION['user_id'];
-			// 	exit;
-			// }else{
-			// 	echo '세션이 없습니다.';
-			// 	exit;
-			// }
-			echo "<script>alert('일반회원 로그인이 완료되었습니다.');location.href= '/';</script>";
+			
+            echo '<script>alert("정상적으로 로그인이 됐습니다.");</script>';
+            if(m_check() == false){
+                echo "<script>location.href = '/';</script>";
+            }else{
+                echo "<script>location.href = '/mobile/';</script>";
+            }
 			exit;
 
 		}
@@ -659,7 +658,12 @@
 			$_SESSION['user_id'] = $row_member['user_id'];
 			$_SESSION['user_type'] = 2;
 
-			echo "<script>alert('가맹점 회원 로그인이 완료되었습니다.');location.href= '/';</script>";
+            echo '<script>alert("정상적으로 로그인이 됐습니다.");</script>';
+            if(m_check() == false){
+                echo "<script>location.href = '/';</script>";
+            }else{
+                echo "<script>location.href = '/mobile/';</script>";
+            }
 			exit;
 
 		}
@@ -667,13 +671,15 @@
 	}
 
 	if($write_type == "product"){
-
+        if(!isset($_SESSION['user_id'])){
+            echo '<script>alert("로그인 후 이용 가능합니다.");location.href = "'.$mobile_check.'/sub/login.php";</script>';
+        }
 		if($_POST['wish_buy'] == 'cart'){
 			$sql = "insert into cart set price = '".$_POST['price']."', discount = '".$_POST['discount']."', product_idx = '".$_POST['product_idx']."', user_id = '".$_SESSION['user_id']."'";
 			$result = mysqli_query($link, $sql);
 			// echo $sql;
 			
-			echo "<script>alert('정상적으로 장바구니에 담았습니다.');location.href = '/sub/my_page/basket.php';</script>";
+			echo "<script>alert('정상적으로 장바구니에 담았습니다.');location.href = '".$mobile_check."/sub/my_page/basket.php';</script>";
 			exit;
 		}else if($_POST['wish_buy'] == 'buy'){
 
@@ -685,19 +691,24 @@
 			$now = date("ymdHis"); //오늘의 날짜 년월일시분초 
 			// $rand = strtoupper(substr(uniqid(sha1(time())),0,4)) ; //임의의난수발생 앞6자리 
 			$orderNum = $now.$last_uid;
-			echo "<script>alert('정상적으로 장바구니에 담았습니다.');</script>";
+			echo "<script>alert('정상적으로 구매신청이 완료됐습니다.');</script>";
 			
 			$sql = "update order_table set `option` = '".$_POST['option']."', order_number = '".$orderNum."', order_status = '주문접수', settle_type = '".$_POST['settle_type']."', amount = '".$_POST['product_cnt']."', product_name = '".$_POST['product_name']."', order_date = '".$now."', price = '".$_POST['price']."', discount = '".$_POST['discount']."', product_idx = '".$_POST['product_idx']."', user_id = '".$_SESSION['user_id']."' where idx='".$last_uid."'";
 			$result = mysqli_query($link, $sql);
 			// echo $sql;
-			
-			echo "<script>location.href = '/sub/order_completed.php';</script>";
+            
+            
+			echo "<script>location.href = '".$mobile_check."/sub/my_page/basket.php';</script>";
 			exit;
 		}
 
 	}
 
 	if($write_type == "buy_gift"){
+        if(!isset($_SESSION['user_id'])){
+            echo '<script>alert("로그인 후 이용 가능합니다.");location.href = '.$mobile_check.'"/sub/login.php";</script>';
+            exit;
+        }
 
 		if($_POST['buy_gift_type'] == 'on'){
 			$sql_null = "insert into order_table set order_status = '주문접수'";

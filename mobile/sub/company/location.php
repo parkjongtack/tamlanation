@@ -1,5 +1,5 @@
 <?php
-    include $_SERVER['DOCUMENT_ROOT']."/include/head.php";
+    include $_SERVER['DOCUMENT_ROOT']."/mobile/include/head.php";
 ?>
 <script src="https://kit.fontawesome.com/7f5faa19ba.js" crossorigin="anonymous"></script>
 <div class="main_slider swiper-container sub_slide">
@@ -36,22 +36,13 @@
         </li>
     </ul>
 </div>
-<div class="sub sub_outer inner" style="position:relative;">
+<div class="sub sub_outer inner">
     
     <img src="/img/sub1_3.png" alt="">
-    <div class="map_outer">
-        <div id="daumRoughmapContainer1603976986923" class="root_daum_roughmap root_daum_roughmap_landing"></div>
-        <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
-        <script charset="UTF-8">
-            new daum.roughmap.Lander({
-                "timestamp" : "1603976986923",
-                "key" : "22q4g",
-                "mapWidth" : "730",
-                "mapHeight" : "470"
-            }).render();
-        </script>
-    </div>
 </div>
+<script>
+
+</script>
 <?php
-    include $_SERVER['DOCUMENT_ROOT']."/include/footer.php";
+    include $_SERVER['DOCUMENT_ROOT']."/mobile/include/footer.php";
 ?>

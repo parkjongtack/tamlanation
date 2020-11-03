@@ -47,7 +47,7 @@
             <input type="hidden" name="board_type" value="buy_gift">
             <input type="hidden" name="buy_gift_type" value="on">
             <input type="hidden" name="settle_type" value="무통장입금">
-            <input type="hidden" name="product_name" value="온라인 상품권">
+            <input type="hidden" name="product_name" value="온라인 상품권"">
                 <div class="line">
                     <p>금액선택</p>
                     <div class="bg">
@@ -83,7 +83,7 @@
             <input type="hidden" name="board_type" value="buy_gift">
             <input type="hidden" name="buy_gift_type" value="off">
             <input type="hidden" name="settle_type" value="무통장입금">
-            <input type="hidden" name="product_name" value="오프라인 상품권">
+            <input type="hidden" name="product_name" value="오프라인 상품권"">
                 <div class="line">
                     <p>금액선택</p>
                     <div class="bg">

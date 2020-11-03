@@ -10,10 +10,9 @@ $row = mysqli_fetch_array($result);
 if(password_verify($_POST['pw'], $row['passwd'])) {
 	
 	$_SESSION['admin_user_id'] = $row['user_id'];
+	$_SESSION['user_id'] = $row['user_id'];
 	//$_SESSION['id'] = $row['user_id'];
-
-	echo "<script>alert('로그인 되었습니다..');location.href = '../as_admin/';</script>";
-	exit;
+    echo "<script>alert('정상적으로 로그인이 완료됐습니다.');location.href='/as_admin/member_list.php';</script>";
 	
 } else {
 	
